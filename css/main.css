@@ -1,0 +1,55 @@
+a {
+	text-decoration: none;
+}
+
+.carta-menu {
+	height: 92%; margin-top: 5%; width: 92%;
+}
+
+.carta-menu:first-of-type {
+	margin-left: 3.5%;
+}
+
+.carta-menu-verde > .mdl-card__title {
+	background-color: #3F51B5;
+	color: white;
+}
+
+.congregacion-action-card, .seccion-action-card, .asociacion-reunion-action-card, .asistencia-action-card {
+	height: 550px; 
+	width: 300px;	
+}
+
+.congregacion-list-container, .seccion-list-container, .asociacion-reunion-list-container, .asistencia-list-container {
+	height: 550px;
+	overflow-y: auto;
+	overflow-x: none;
+}
+
+.bgColorAzul {
+	background-color: #E8EAF6;
+}
+
+.login-card, .error-card {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.bgColorAmarillo {
+	background-color: #FFFDE7;
+}
+
+.noDisplay {
+	display: none;
+}
+
+.redColor {
+	color: #F44336;
+}
+
+.greenColor {
+	color: #4CAF50;
+}
+
+.cursorPointer:hover {
+	cursor: pointer;
+}
