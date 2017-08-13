@@ -2,9 +2,9 @@ var
     $btnGraficar = $("#btnGraficar"),
     $cboCongregaciones = $("#cboCongregaciones"),
     $cboCongregacionesContainer = $("#cboCongregacionesContainer"),
+    $dpFecha = $("#dpFecha"),
     BaseCongregacionesUrl = "../controllers/CongregacionesController.php",
-    BaseReunionesUrl = "../controllers/AsociacionReunionesController.php",
-    BaseSeccionesUrl = "../controllers/SeccionesController.php",
+    BaseAsistenciaGraficasUrl = "../controllers/AsistenciaGraficasController.php",
     ctx = document.getElementById("myChart"),
     myChart = new Chart(ctx, {
         type: 'bar',
@@ -31,8 +31,16 @@ ObtenerInformacionCongregaciones();
 
 
 $btnGraficar.click(function(evt) {
+    var FechaCaptura = $dpFecha.val(),
+        CongregacionID = $cboCongregaciones.val();
+
     evt.preventDefault();
 
+    if( CongregacionID != "0" && CongregacionID != 0 ) {
+        ObtenerAsistenciaGraficaMes( FechaCaptura, CongregacionID );
+    }else {
+        swal("Notificacion", "Falta especificar la congregacion", "warning");
+    }
 });
 
 
@@ -77,34 +85,35 @@ function FillCboCongregaciones(CongregacionesJSON) {
     $cboCongregacionesContainer.addClass("is-dirty");   
 }
 
-function testChart() {
-    var objetoJSON = {
-        labels : [ "Semana #22" , "Semana #23" , "Semana #24" , "Semana #25" , "Semana #26" ],
-        datasets : [
-            {
-                label: 'Vida y Ministerio [Seccion A]',
-                data: [ 86 , 82 , 89 , 80 , 83 ],
-                backgroundColor: 'red'
-            },
-            {
-                label: 'Estudio de la Atalaya [Seccion A]',
-                data: [ 92 , 90 , 95 , 88 , 92 ],
-                backgroundColor: 'blue'
-            },
-            {
-                label: 'Vida y Ministerio [Seccion B]',
-                data : [ 98 , 100 , 89 , 98 , 105 ],
-                backgroundColor: 'purple'
-            },
-            {
-                label: 'Estudio de la Atalaya [Seccion B]',
-                data: [ 115 , 108 , 97 , 105 , 113 ],
-                backgroundColor: 'orange'
+function ObtenerAsistenciaGraficaMes( FechaCaptura , CongregacionID ) {
+    var
+        mRandom = ( Math.round( ( 999 - 1 ) * Math.random() + 1 ) ),
+        Objeto = {
+            "opcion" : "ObtenerAsistenciaGraficaMes",
+            "FechaCaptura" : FechaCaptura,
+            "CongregacionID" : CongregacionID
+        },
+        mUrl = BaseAsistenciaGraficasUrl + "?Parametros=" + JSON.stringify( Objeto ) + "&mRandom=" + mRandom; 
+
+    dlgLoader.showModal();  
+    $.ajax({
+        url: mUrl,
+        async:true,
+        cache: false,
+        dataType: 'json',
+        success: function( ServerResponseJSON ) {
+            dlgLoader.close();
+            if( ServerResponseJSON.Valid == "false" ) {
+                swal("Notificacion", "No existe informacion de esa congregacion en ese mes.", "warning");           
             }
-        ]
-    };
-    
-    myChart.data.labels = objetoJSON.labels;
-    myChart.data.datasets = objetoJSON.datasets;
-    myChart.update();   
+            UpdateChart( ServerResponseJSON );
+        },  
+        type: "GET"
+    });     
+}
+
+function UpdateChart( ChartData ) {
+    myChart.data.labels = ChartData.labels;
+    myChart.data.datasets = ChartData.datasets;
+    myChart.update(); 
 }
