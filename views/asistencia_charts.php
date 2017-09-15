@@ -31,22 +31,7 @@
 									<div class="box">&nbsp;</div>
 								</div>																
 							</div>	
-							<div class="row">
-								<div class="col-md-1">
-									<div class="box">&nbsp;</div>
-								</div>								
-								<div class="col-md-10">
-									<div class="box">
-										<div id="cboReunionesContainer" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<select id="cboReuniones" name="cboReuniones" class="mdl-textfield__input" required="required"></select>
-											<label class="mdl-textfield__label" for="cboReuniones">Reunion:</label>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-1">
-									<div class="box">&nbsp;</div>
-								</div>																									
-							</div>
+
 							<div class="row">
 								<div class="col-md-12">
 									<div class="box">&nbsp;</div>
@@ -69,6 +54,17 @@
 								</div>																									
 							</div>
 							<div class="row">
+								<div class="col-md-1">
+									<div class="box">&nbsp;</div>
+								</div>								
+								<div class="col-md-10">
+									<div class="box">&nbsp;</div>
+								</div>
+								<div class="col-md-1">
+									<div class="box">&nbsp;</div>
+								</div>																									
+							</div>
+							<div class="row">
 								<div class="col-md-12">
 									<div class="box">&nbsp;</div>
 								</div>																
@@ -78,12 +74,7 @@
 									<div class="box">&nbsp;</div>
 								</div>								
 								<div class="col-md-10">
-									<div class="box">
-										<div id="cboSeccionesContainer" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<select id="cboSecciones" name="cboSecciones" class="mdl-textfield__input" required="required"></select>
-											<label class="mdl-textfield__label" for="cboSecciones">Seccion:</label>
-										</div>
-									</div>
+									<div class="box">&nbsp;</div>
 								</div>
 								<div class="col-md-1">
 									<div class="box">&nbsp;</div>

@@ -23,6 +23,11 @@ if( $ParametrosJSON != null ) {
 				$ResultadoInformacionAsociacionReuniones = AsociacionReunionesService::ObtenerInformacionAsociacionReuniones($DbConfig, $ParametrosJSON->ReunibleID, $ParametrosJSON->ReunibleType);
 				echo $ResultadoInformacionAsociacionReuniones;
 			break;
+
+		case "ObtenerAsociacionReunionesActivas":
+				$ResultadoAsociacionReunionesActivas = AsociacionReunionesService::ObtenerAsociacionReunionesActivas($DbConfig, $ParametrosJSON->ReunibleID, $ParametrosJSON->ReunibleType);
+				echo $ResultadoAsociacionReunionesActivas;
+			break;			
 			
 		case "AgregarAsociacionReunion":
 			$ResultadoAgregarAsociacionReunion = AsociacionReunionesService::AgregarAsociacionReunion($DbConfig, $ParametrosJSON->ReunionID, $ParametrosJSON->ReunibleID, $ParametrosJSON->ReunibleType, $ParametrosJSON->AsociacionHorario, $ParametrosJSON->UsuarioID);

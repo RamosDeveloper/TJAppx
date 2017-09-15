@@ -18,6 +18,11 @@ if( $ParametrosJSON != null ) {
 				$ResultadoInformacionSecciones = SeccionesService::ObtenerInformacionSecciones( $DbConfig , $ParametrosJSON->CongregacionID );
 				echo $ResultadoInformacionSecciones;
 			break;
+
+		case "ObtenerSeccionesActivas":
+				$ResultadoSeccionesActivas = SeccionesService::ObtenerSeccionesActivas( $DbConfig , $ParametrosJSON->CongregacionID );
+				echo $ResultadoSeccionesActivas;
+			break;			
 			
 		case "AgregarSeccion":
 			$ResultadoAgregarSeccion = SeccionesService::AgregarSeccion( $DbConfig , $ParametrosJSON->CongregacionID , $ParametrosJSON->NombreSeccion , $ParametrosJSON->UsuarioID );

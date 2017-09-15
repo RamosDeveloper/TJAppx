@@ -99,7 +99,7 @@ function ObtenerInformacionCongregaciones() {
 	var
 		mRandom = ( Math.round( ( 999 - 1 ) * Math.random() + 1 ) ),
 		Objeto = {
-			"opcion" : "ObtenerInformacionCongregaciones"
+			"opcion" : "ObtenerCongregacionesActivas"
 		},
 		mUrl = BaseCongregacionesUrl + "?Parametros=" + JSON.stringify( Objeto ) + "&mRandom=" + mRandom;	
 
@@ -140,7 +140,7 @@ function ObtenerInformacionSecciones( CongregacionId ) {
 	var
 		mRandom = ( Math.round( ( 999 - 1 ) * Math.random() + 1 ) ),
 		Objeto = {
-			"opcion" : "ObtenerInformacionSecciones",
+			"opcion" : "ObtenerSeccionesActivas",
 			"CongregacionID" : CongregacionId
 		},
 		mUrl = BaseSeccionesUrl + "?Parametros=" + JSON.stringify( Objeto ) + "&mRandom=" + mRandom;	

@@ -19,5 +19,12 @@ class CerberusService
 		$CerberusDAO = new CerberusDAO();
 		return $CerberusDAO->LocalLogin($param_DbConfig,$param_usuario, $param_contrasena);
 	}
+
+	public function DispositivoLogin($param_DbConfig, $param_dispositivo_serial)
+	{
+		self::initialize();
+		$CerberusDAO = new CerberusDAO();
+		return $CerberusDAO->DispositivoLogin($param_DbConfig, $param_dispositivo_serial);
+	}
 }
 ?>

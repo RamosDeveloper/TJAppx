@@ -20,6 +20,12 @@ class AsistenciaGraficasService
 		$AsistenciaGraficasDAO = new AsistenciaGraficasDAO();
 		return $AsistenciaGraficasDAO->ObtenerNumeroSemanas($param_DbConfig, $param_fecha_captura);
 	}
-	
+
+	public static function ObtenerAsistenciaGraficaMes($param_DbConfig, $param_congregacion_id, $param_fecha_captura)
+	{
+		self::initialize();
+		$AsistenciaGraficasDAO = new AsistenciaGraficasDAO();
+		return $AsistenciaGraficasDAO->ObtenerAsistenciaGraficaMes($param_DbConfig, $param_congregacion_id, $param_fecha_captura);
+	}	
 }
 ?>

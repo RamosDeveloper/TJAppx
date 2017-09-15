@@ -43,7 +43,10 @@ $_modulo = ( isset( $_GET["modulo"] ) ) ? trim( $_GET["modulo"] ) : "SM"; # SM =
 	  <div class="mdl-layout__drawer">
 	    <span class="mdl-layout-title">TjAppx</span>
 	    <nav class="mdl-navigation">
-	      <a class="mdl-navigation__link btnsDesplegarModulos" href="" data-modulo="congregaciones"><i class="material-icons md-48">group_work</i>&nbsp;Congregaciones</a>
+	      <?php if( isset( $_SESSION["TipoUsuarioDescripcion"] ) && $_SESSION["TipoUsuarioDescripcion"] == "Administrador" ): ?>
+	      	<a class="mdl-navigation__link btnsDesplegarModulos" href="" data-modulo="congregaciones"><i class="material-icons md-48">group_work</i>&nbsp;Congregaciones</a>
+	      	<a class="mdl-navigation__link btnsDesplegarModulos" href="" data-modulo="dispositivos_permitidos"><i class="material-icons md-48">phonelink_setup</i>&nbsp;Dispositivos</a>
+	      <?php endif; ?>
 	      <a class="mdl-navigation__link btnsDesplegarModulos" href="" data-modulo="asistencia"><i class="material-icons md-48">today</i>&nbsp;Asistencia</a>
 	    </nav>
 	  </div>

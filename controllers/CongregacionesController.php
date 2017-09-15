@@ -18,6 +18,11 @@ if( $ParametrosJSON != null ) {
 				$ResultadoInformacionCongregaciones = CongregacionesService::ObtenerInformacionCongregaciones($DbConfig);
 				echo $ResultadoInformacionCongregaciones;
 			break;
+
+		case "ObtenerCongregacionesActivas":
+				$ResultadoCongregacionesActivas = CongregacionesService::ObtenerCongregacionesActivas($DbConfig);
+				echo $ResultadoCongregacionesActivas;
+			break;			
 			
 		case "AgregarCongregacion":
 			$ResultadoAgregarCongregacion = CongregacionesService::AgregarCongregacion($DbConfig,$ParametrosJSON->NombreCongregacion, $ParametrosJSON->UsuarioID);

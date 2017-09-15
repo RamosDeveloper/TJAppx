@@ -1,7 +1,6 @@
 <?php
 require_once("/var/www/vhosts/m-isoftware.mx/httpdocs/TJAppx/config/database.php");
 require_once("/var/www/vhosts/m-isoftware.mx/httpdocs/TJAppx/services/CerberusService.php");
-require_once("/var/www/vhosts/m-isoftware.mx/httpdocs/TJAppx/services/UsuariosService.php");
 
 if( isset( $_POST["Parametros"] ) ) {
 	$ParametrosJSON = json_decode( $_POST["Parametros"] );
@@ -17,20 +16,12 @@ if( $ParametrosJSON != null ) {
 	switch ( trim( $ParametrosJSON->opcion ) ) {
 		case "LocalLogin":
 				$ResultadoLocalLogin = CerberusService::LocalLogin( $DbConfig , $ParametrosJSON->usuario , MD5( $ParametrosJSON->contrasena ) );	
-				$ResultadoLocalLoginJSON = json_decode($ResultadoLocalLogin);
-				if( $ResultadoLocalLoginJSON->Valid == "1" || $ResultadoLocalLoginJSON->Valid == 1 ) {
-					$ResultadoUsuarioView = UsuariosService::ObtenerVistaUsuarioPorUsuario( $DbConfig , $ParametrosJSON->usuario);
-					$ResultadoUsuarioViewJSON = json_decode($ResultadoUsuarioView);
-					session_start();
-					$_SESSION["UsuarioId"] = $ResultadoUsuarioViewJSON->UsuarioId;
-					$_SESSION["Usuario"] = $ResultadoUsuarioViewJSON->Usuario;
-					$_SESSION["Nombres"] = $ResultadoUsuarioViewJSON->Nombres;
-					$_SESSION["ApellidoPaterno"] = $ResultadoUsuarioViewJSON->ApellidoPaterno;
-					$_SESSION["ApellidoMaterno"] = $ResultadoUsuarioViewJSON->ApellidoMaterno;
-					$_SESSION["Correo"] = $ResultadoUsuarioViewJSON->Correo;
-					$_SESSION["TipoUsuarioDescripcion"] = $ResultadoUsuarioViewJSON->TipoUsuarioDescripcion;
-				}
 				echo $ResultadoLocalLogin;
+			break;
+
+		case "DispositivoLogin":
+			$ResultadoDispositivoLogin = CerberusService::DispositivoLogin( $DbConfig , $ParametrosJSON->DispositivoSerial );
+			echo $ResultadoDispositivoLogin;
 			break;
 
 		case 'KillSession':

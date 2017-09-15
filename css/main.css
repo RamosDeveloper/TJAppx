@@ -15,12 +15,12 @@ a {
 	color: white;
 }
 
-.congregacion-action-card, .seccion-action-card, .asociacion-reunion-action-card, .asistencia-action-card {
+.congregacion-action-card, .seccion-action-card, .asociacion-reunion-action-card, .asistencia-action-card, .dispositivos-permitidos-action-card {
 	height: 550px; 
 	width: 300px;	
 }
 
-.congregacion-list-container, .seccion-list-container, .asociacion-reunion-list-container, .asistencia-list-container {
+.congregacion-list-container, .seccion-list-container, .asociacion-reunion-list-container, .asistencia-list-container, .dispositivos-permitidos-list-container {
 	height: 550px;
 	overflow-y: auto;
 	overflow-x: none;
