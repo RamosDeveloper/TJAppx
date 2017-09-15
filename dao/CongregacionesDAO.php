@@ -47,6 +47,35 @@ class CongregacionesDAO
 		return json_encode($ArrCongregaciones);
 	}
 
+	public function ObtenerCongregacionesActivas($param_DbConfig) 
+	{
+		$ArrCongregaciones = array();
+		try {
+
+			$pdo = new PDO(
+				"mysql:host={$param_DbConfig["host"]};dbname={$param_DbConfig["dbname"]}",
+				$param_DbConfig["user"],
+				$param_DbConfig["password"]
+			);	
+			
+			$stmt = $pdo->prepare($this->sql);	
+
+			$this->params["param_opcion"] = "ObtenerCongregacionesActivas";
+
+			$stmt->execute($this->params);
+			while( $result = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
+				$Congregacion = new Congregacion();
+				$Congregacion->Id = $result["id"];
+				$Congregacion->Nombre = $result["nombre"];
+				$Congregacion->UsuarioId = $result["usuario_id"];
+				$Congregacion->FechaCreacion = $result["fecha_creacion"];
+				$Congregacion->Estatus = $result["estatus"];
+				array_push($ArrCongregaciones, $Congregacion);
+			}				
+		} catch (PDOException $ex) {}
+		return json_encode($ArrCongregaciones);
+	}
+	
 	public function AgregarCongregacion($param_DbConfig,$param_nombre_congregacion, $param_usuario_id) 
 	{
 		$AgregarCongregacion = new stdClass();

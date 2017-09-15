@@ -20,6 +20,13 @@ class SeccionesService
 		return $SeccionesDAO->ObtenerInformacionSecciones($param_DbConfig, $param_congregacion_id);
 	}
 
+	public static function ObtenerSeccionesActivas($param_DbConfig, $param_congregacion_id)
+	{
+		self::initialize();
+		$SeccionesDAO = new SeccionesDAO();
+		return $SeccionesDAO->ObtenerSeccionesActivas($param_DbConfig, $param_congregacion_id);
+	}
+	
 	public static function AgregarSeccion($param_DbConfig, $param_congregacion_id, $param_nombre_seccion, $param_usuario_id)
 	{
 		self::initialize();

@@ -85,6 +85,40 @@ class AsociacionReunionesDAO
 		return json_encode($ArrAsociacionReunionView);
 	}
 
+	public function ObtenerAsociacionReunionesActivas($param_DbConfig, $param_reunible_id, $param_reunible_type) 
+	{
+		$ArrAsociacionReunionView = array();
+		try {
+
+			$pdo = new PDO(
+				"mysql:host={$param_DbConfig["host"]};dbname={$param_DbConfig["dbname"]}",
+				$param_DbConfig["user"],
+				$param_DbConfig["password"]
+			);	
+			
+			$stmt = $pdo->prepare($this->sql);	
+
+			$this->params["param_opcion"] = "ObtenerAsociacionReunionesActivas";
+			$this->params["param_reunible_id"] = $param_reunible_id;
+			$this->params["param_reunible_type"] = $param_reunible_type;
+
+			$stmt->execute($this->params);
+			while( $result = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
+				$AsociacionReunionView = new AsociacionReunionView();
+				$AsociacionReunionView->AsociacionReunionId = $result["asociacion_reunion_id"];
+				$AsociacionReunionView->AsociacionReunionHorario = $result["asociacion_reunion_horario"];
+				$AsociacionReunionView->AsociacionReunionEstatus = $result["asociacion_reunion_estatus"];
+				$AsociacionReunionView->ReunibleId = $result["reunible_id"];
+				$AsociacionReunionView->ReunibleType = $result["reunible_type"];
+				$AsociacionReunionView->ReunionId = $result["reunion_id"];
+				$AsociacionReunionView->ReunionNombre = $result["reunion_nombre"];
+				$AsociacionReunionView->ReunionEstatus = $result["reunion_estatus"];
+				array_push($ArrAsociacionReunionView, $AsociacionReunionView);
+			}				
+		} catch (PDOException $ex) {}
+		return json_encode($ArrAsociacionReunionView);
+	}
+
 	public function AgregarAsociacionReunion($param_DbConfig, $param_reunion_id, $param_reunible_id, $param_reunible_type, $param_asociacion_horario, $param_usuario_id) 
 	{
 		$AgregarAsociacionReunion = new stdClass();

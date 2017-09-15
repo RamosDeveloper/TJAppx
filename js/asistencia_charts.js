@@ -48,7 +48,7 @@ function ObtenerInformacionCongregaciones() {
     var
         mRandom = ( Math.round( ( 999 - 1 ) * Math.random() + 1 ) ),
         Objeto = {
-            "opcion" : "ObtenerInformacionCongregaciones"
+            "opcion" : "ObtenerCongregacionesActivas"
         },
         mUrl = BaseCongregacionesUrl + "?Parametros=" + JSON.stringify( Objeto ) + "&mRandom=" + mRandom;   
 

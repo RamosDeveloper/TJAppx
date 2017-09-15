@@ -57,6 +57,7 @@ function DisplayListadoSecciones(SeccionesJSON) {
 		indice = 0,
 		icono = "",
 		iconoColor = "",
+		claseDesplegarReunionesBtn = "",		
 		total = SeccionesJSON.length;
 
 	$listViewSecciones.empty();
@@ -65,12 +66,13 @@ function DisplayListadoSecciones(SeccionesJSON) {
 			for(indice = 0 ; indice < total ; indice++) {
 				icono = ( SeccionesJSON[indice].Estatus == 1 ) ? "highlight_off" : "check_circle";
 				iconoColor = ( SeccionesJSON[indice].Estatus == 1 ) ? "redColor" : "greenColor";
+				claseDesplegarReunionesBtn = ( SeccionesJSON[indice].Estatus == 1 ) ? "btnsDesplegarReuniones" : "";
 			
 				tmpHtml += '<li id="item_' + SeccionesJSON[indice].Id + '" class="view_' + SeccionesJSON[indice].Id + ' mdl-list__item mdl-list__item--two-line"  data-congregacionid="' + SeccionesJSON[indice].CongregacionId + '" data-seccionid="' + SeccionesJSON[indice].Id + '" data-seccionnombre="' + SeccionesJSON[indice].Nombre + '" data-estatus="' + SeccionesJSON[indice].Estatus + '">';
 				tmpHtml += '	<span class="mdl-list__item-primary-content">';
 				tmpHtml += '		<i class="material-icons mdl-list__item-avatar">group_work</i>';
 				tmpHtml += '		<span>' + SeccionesJSON[indice].Nombre + '</span>';
-				tmpHtml += '		<span class="mdl-list__item-sub-title"><a class="btnsDesplegarReuniones" href="#">Reuniones</a></span>';
+				tmpHtml += '		<span class="mdl-list__item-sub-title"><a class="' + claseDesplegarReunionesBtn + '" href="#">Reuniones</a></span>';
 				tmpHtml += '	</span>';
 				tmpHtml += '	<span class="mdl-list__item-secondary-content">';
 				tmpHtml += '		<a class="mdl-list__item-secondary-action" href="#">';

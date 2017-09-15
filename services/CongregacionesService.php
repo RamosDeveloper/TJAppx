@@ -20,6 +20,13 @@ class CongregacionesService
 		return $CongregacionesDAO->ObtenerInformacionCongregaciones($param_DbConfig);
 	}
 
+	public static function ObtenerCongregacionesActivas($param_DbConfig) 
+	{
+		self::initialize();
+		$CongregacionesDAO = new CongregacionesDAO();
+		return $CongregacionesDAO->ObtenerCongregacionesActivas($param_DbConfig);
+	}
+	
 	public static function AgregarCongregacion($param_DbConfig,$param_nombre_congregacion, $param_usuario_id)
 	{
 		self::initialize();

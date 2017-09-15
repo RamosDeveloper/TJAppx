@@ -54,6 +54,8 @@ function DisplayListadoCongregaciones(CongregacionesJSON) {
 		indice = 0,
 		icono = "",
 		iconoColor = "",
+		claseDesplegarSeccionesBtn = "",
+		claseDesplegarReunionesBtn = "",
 		total = CongregacionesJSON.length;
 
 	$listViewCongregaciones.empty();
@@ -62,13 +64,15 @@ function DisplayListadoCongregaciones(CongregacionesJSON) {
 			for(indice = 0 ; indice < total ; indice++) {
 				icono = ( CongregacionesJSON[indice].Estatus == 1 ) ? "highlight_off" : "check_circle";
 				iconoColor = ( CongregacionesJSON[indice].Estatus == 1 ) ? "redColor" : "greenColor";
+				claseDesplegarSeccionesBtn = ( CongregacionesJSON[indice].Estatus == 1 ) ? "btnsDesplegarSecciones" : "";
+				claseDesplegarReunionesBtn = ( CongregacionesJSON[indice].Estatus == 1 ) ? "btnsDesplegarReuniones" : "";
 			
 				tmpHtml += '<li id="item_' + CongregacionesJSON[indice].Id + '" class="view_' + CongregacionesJSON[indice].Id + ' mdl-list__item mdl-list__item--two-line"  data-congregacionid="' + CongregacionesJSON[indice].Id + '" data-congregacionnombre="' + CongregacionesJSON[indice].Nombre + '" data-estatus="' + CongregacionesJSON[indice].Estatus + '">';
 				tmpHtml += '	<span class="mdl-list__item-primary-content">';
 				tmpHtml += '		<i class="material-icons mdl-list__item-avatar">group_work</i>';
 				tmpHtml += '		<span>' + CongregacionesJSON[indice].Nombre + '</span>';
-				tmpHtml += '		<span class="mdl-list__item-sub-title"><a class="btnsDesplegarSecciones" href="#">Secciones</a></span>';
-				tmpHtml += '		<span class="mdl-list__item-sub-title"><a class="btnsDesplegarReuniones" href="#">Reuniones</a></span>';
+				tmpHtml += '		<span class="mdl-list__item-sub-title"><a class="' + claseDesplegarSeccionesBtn + '" href="#">Secciones</a></span>';
+				tmpHtml += '		<span class="mdl-list__item-sub-title"><a class="' + claseDesplegarReunionesBtn + '" href="#">Reuniones</a></span>';
 				tmpHtml += '	</span>';
 				tmpHtml += '	<span class="mdl-list__item-secondary-content">';
 				tmpHtml += '		<a class="mdl-list__item-secondary-action" href="#">';

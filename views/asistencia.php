@@ -140,7 +140,11 @@
 									</div>	
 									<div class="col-md-4">
 										<div class="box">
-											<button id="btnGoToAsistenciaCharts" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">insert_chart</i>CHARTS</button>
+											<?php if( isset( $_SESSION["TipoUsuarioDescripcion"] ) && $_SESSION["TipoUsuarioDescripcion"] == "Administrador" ): ?>
+												<button id="btnGoToAsistenciaCharts" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">insert_chart</i>CHARTS</button>
+											<?php else: ?>
+												&nbsp;
+											<?php endif; ?>
 										</div>
 									</div>																
 									<div class="col-md-2">

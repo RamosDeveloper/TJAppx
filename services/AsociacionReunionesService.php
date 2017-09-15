@@ -27,6 +27,13 @@ class AsociacionReunionesService
 		return $AsociacionReunionesDAO->ObtenerInformacionAsociacionReuniones($param_DbConfig, $param_reunible_id, $param_reunible_type);
 	}
 
+	public static function ObtenerAsociacionReunionesActivas($param_DbConfig, $param_reunible_id, $param_reunible_type)
+	{
+		self::initialize();
+		$AsociacionReunionesDAO = new AsociacionReunionesDAO();
+		return $AsociacionReunionesDAO->ObtenerAsociacionReunionesActivas($param_DbConfig, $param_reunible_id, $param_reunible_type);
+	}
+	
 	public static function AgregarAsociacionReunion($param_DbConfig, $param_reunion_id, $param_reunible_id, $param_reunible_type, $param_asociacion_horario, $param_usuario_id)
 	{
 		self::initialize();

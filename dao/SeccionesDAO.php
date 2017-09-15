@@ -50,6 +50,37 @@ class SeccionesDAO
 		return json_encode($ArrSecciones);
 	}
 
+	public function ObtenerSeccionesActivas($param_DbConfig, $param_congregacion_id) 
+	{
+		$ArrSecciones = array();
+		try {
+
+			$pdo = new PDO(
+				"mysql:host={$param_DbConfig["host"]};dbname={$param_DbConfig["dbname"]}",
+				$param_DbConfig["user"],
+				$param_DbConfig["password"]
+			);	
+			
+			$stmt = $pdo->prepare($this->sql);	
+
+			$this->params["param_opcion"] = "ObtenerSeccionesActivas";
+			$this->params["param_congregacion_id"] = $param_congregacion_id;
+
+			$stmt->execute($this->params);
+			while( $result = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
+				$Seccion = new Seccion();
+				$Seccion->Id = $result["id"];
+				$Seccion->Nombre = $result["nombre"];
+				$Seccion->CongregacionId = $result["congregacion_id"];
+				$Seccion->UsuarioId = $result["usuario_id"];
+				$Seccion->FechaCreacion = $result["fecha_creacion"];
+				$Seccion->Estatus = $result["estatus"];
+				array_push($ArrSecciones, $Seccion);
+			}				
+		} catch (PDOException $ex) {}
+		return json_encode($ArrSecciones);
+	}
+	
 	public function AgregarSeccion($param_DbConfig, $param_congregacion_id, $param_nombre_seccion, $param_usuario_id) 
 	{
 		$AgregarSeccion = new stdClass();
