@@ -19,7 +19,4 @@ Es una aplicacion sin fines lucrativos cuyo objetivo es ayudar a las congregacio
  * Capturar la asistencia de la congregaciones
  * Capturar la asistencia de la secciones que tenga una congregacion
  * Visualizacion de la asistencia mediante una grafica interactiva
- 
- 
- ##### Proximamente
- * API para exponer cierta informacion que pueda usarse para desarrollar integracion con alguna aplicaciones movil.
+ * Aprobar o Desaprobar el que un dispositivo tenga acceso a la API.

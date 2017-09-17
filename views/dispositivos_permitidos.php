@@ -46,7 +46,7 @@
 									</div>							
 									<div class="col-md-3">
 										<div class="box">
-											<button id="btnAprobarDispositivo" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">APROBAR</button>										
+											<button id="btnAction" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent noDisplay">APROBAR</button>										
 										</div>
 									</div>	
 									<div class="col-md-2">
