@@ -20,3 +20,8 @@ Es una aplicacion sin fines lucrativos cuyo objetivo es ayudar a las congregacio
  * Capturar la asistencia de la secciones que tenga una congregacion
  * Visualizacion de la asistencia mediante una grafica interactiva
  * Aprobar o Desaprobar el que un dispositivo tenga acceso a la API.
+ * Crear usuario
+ * Actualizar usuario
+ * Deshabilitar usuario
+ * Habilitar usuario
+ * Cambiar contrasena de el usuario

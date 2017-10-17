@@ -5,6 +5,11 @@ var
 	dlgLoader = document.querySelector("#dlgLoader");
 
 
+if (! dlgLoader.showModal) {
+	dialogPolyfill.registerDialog(dlgLoader);
+}
+
+
 $btnLogin.click(function(evt) {
 	evt.preventDefault();
 	LocalLogin( $txtUsuario.val() , $pswContrasena.val() );

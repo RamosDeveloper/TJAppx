@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.red-blue.min.css" />
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
 	<link rel="stylesheet" href="css/sweetalert.css">
+	<link rel="stylesheet" href="css/dialog-polyfill.css" />
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body style="height: 100%;">
@@ -81,6 +82,7 @@
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="js/sweetalert.min.js"></script>
+	<script src="js/dialog-polyfill.js"></script>
 	<script src="js/login.js"></script>
 </body>
 </html>

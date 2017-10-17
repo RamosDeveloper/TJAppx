@@ -13,6 +13,7 @@ class UsuarioView
 	public $FechaCreacion;
 	public $TipoUsuarioId;
 	public $TipoUsuarioDescripcion;
+	public $TieneDispositivoAsociado;
 
 	public function __construct()
 	{
@@ -27,6 +28,7 @@ class UsuarioView
 		$this->FechaCreacion = null;
 		$this->TipoUsuarioId = 0;
 		$this->TipoUsuarioDescripcion = null;
+		$this->TieneDispositivoAsociado = 0;
 	}
 }
 

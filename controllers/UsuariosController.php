@@ -31,6 +31,11 @@ if( $ParametrosJSON != null ) {
 			echo json_encode($ResultadoBeginSession);			
 			break;
 
+		case "ObtenerUsuarios":
+			$ResultadoUsuarios = UsuariosService::ObtenerUsuarios($DbConfig);
+			echo $ResultadoUsuarios;
+			break;
+
 		case "ObtenerUsuariosActivos":
 			$ResultadoUsuariosActivos = UsuariosService::ObtenerUsuariosActivos($DbConfig);
 			echo $ResultadoUsuariosActivos;
@@ -44,6 +49,26 @@ if( $ParametrosJSON != null ) {
 		case "ObtenerVistaUsuarioPorId":
 			$ResultadoUsuarioView = UsuariosService::ObtenerVistaUsuarioPorId( $DbConfig , $ParametrosJSON->UsuarioID );
 			echo $ResultadoUsuarioView;
+			break;
+
+		case "CrearUsuario":
+			$ResultadoCrearUsuario = UsuariosService::CrearUsuario($DbConfig, $ParametrosJSON->usuario, MD5($ParametrosJSON->usuario), $ParametrosJSON->Nombres, $ParametrosJSON->ApellidoPaterno, $ParametrosJSON->ApellidoMaterno, $ParametrosJSON->Correo, $ParametrosJSON->TipoUsuarioID );
+			echo $ResultadoCrearUsuario;
+			break;
+
+		case "UpdateUsuario":
+			$ResultadoUpdateUsuario = UsuariosService::UpdateUsuario($DbConfig, $ParametrosJSON->UsuarioID, $ParametrosJSON->Nombres, $ParametrosJSON->ApellidoPaterno, $ParametrosJSON->ApellidoMaterno, $ParametrosJSON->Correo, $ParametrosJSON->TipoUsuarioID);
+			echo $ResultadoUpdateUsuario;
+			break;
+
+		case "CambiarContrasena":
+			$ResultadoCambiarContrasena = UsuariosService::CambiarContrasena($DbConfig, $ParametrosJSON->UsuarioID, MD5($ParametrosJSON->Contrasena));
+			echo $ResultadoCambiarContrasena;
+			break;
+
+		case "ManejoDeEstatusUsuario":
+			$ResultadoManejoDeEstatusUsuario = UsuariosService::ManejoDeEstatusUsuario($DbConfig, $ParametrosJSON->UsuarioID, $ParametrosJSON->Estatus);
+			echo $ResultadoManejoDeEstatusUsuario;
 			break;
 	}	
 }
